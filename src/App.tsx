@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import LaunchList from './components/LaunchList'
+import LaunchProfile from './components/LaunchProfile'
 
 function App() {
+  const [missinId, setmissinId] = useState<number>(1)
+  const onChangeHandler = (id: number) => {
+    setmissinId(id)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LaunchList onChangeHandler={onChangeHandler} />
+      <LaunchProfile />
+      <h1>hello world</h1>
     </div>
   );
 }
